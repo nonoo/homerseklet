@@ -9,9 +9,9 @@
 	$context = $_GET['context'];
 	$interval = $_GET['interval'];
 
-	if (getContextName($context) == 'Ismeretlen')
+	if (getContextName($context) == 'Unknown')
 		$context = 'tata';
-	if (getIntervalName($interval) == 'Ismeretlen')
+	if (getIntervalName($interval) == 'Unknown')
 		$interval = '3d';
 
 	$db = new mysqli($config['dbHost'], $config['dbUser'], $config['dbPass'], $config['dbName']);

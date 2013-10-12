@@ -4,17 +4,14 @@
 	if ($_GET['p'] != $config['postPassword'])
 		die('403 Forbidden');
 
+	include('homerseklet.inc.php');
+
 	$context = $_GET['c'];
 	$ts = $_GET['t'];
 	$value = $_GET['v'];
 
-	switch ($context) {
-		case 'bp-kint':
-		case 'bp-szoba':
-			break;
-		default:
-			die('404 Not Found');
-	}
+	if (getContextName($context) == 'Unknown')
+		die('404 Not Found');
 
 	if (!is_numeric($ts) || !is_numeric($value))
 		die('400 Bad Request');

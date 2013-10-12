@@ -38,7 +38,7 @@
 		switch ($context) {
 			case 'tata': return 'Tata';
 			case 'bp': return 'Budapest';
-			default: return 'Ismeretlen';
+			default: return 'Unknown';
 		}
 	}
 
@@ -50,7 +50,7 @@
 			case '3m': return '3 months';
 			case '1y': return '1 year';
 			case '5y': return '5 years';
-			default: return 'Ismeretlen';
+			default: return 'Unknown';
 		}
 	}
 
