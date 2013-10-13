@@ -1,7 +1,7 @@
 homerseklet
 ===========
 
-A webpage for displaying temperature graphs. You can see it working [here](http://puttony.nonoo.hu/homerseklet).
+A webpage for displaying temperature graphs. More info [here](https://github.com/nonoo/homerseklet). You can see it working [here](http://puttony.nonoo.hu/homerseklet).
 
 It uses dygraphs for displaying data, which is read using gettemp.csv.php. Example SQL table structure can be found in example.sql.
 
