@@ -45,6 +45,7 @@
 		</span>
 	</div>
 	<div id="infobox">
+		<a href="https://github.com/nonoo/homerseklet">source</a> |
 		<a href="http://dp.nonoo.hu/measuring-temperature/">info</a> |
 		<a href="http://webcam.nonoo.hu/">webcams</a> |
 		<a href="https://market.android.com/details?id=com.nonoo.homersekletwidget.tata">android widget</a>
