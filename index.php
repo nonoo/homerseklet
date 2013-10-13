@@ -30,6 +30,7 @@
 </head>
 
 <body>
+	<div id="title">Hőmérséklet</div>
 	<div id="contextswitchbox">
 		<span id="contexts">
 			Locations:

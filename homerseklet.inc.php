@@ -4,7 +4,7 @@
 
 		$query = "show tables from `${config['dbName']}`";
 		if (($res = $db->query($query)) === FALSE)
-			echo "error executing db query: $query\nerror: " . mysqli_error() . "\n";
+			echo "error executing db query: $query\nerror: " . $db->error . "\n";
 
 		$contexts = array();
 		while ($context = $res->fetch_array(MYSQLI_NUM)) {
@@ -22,7 +22,7 @@
 		$query = "show tables from `${config['dbName']}` where `Tables_in_${config['dbName']}` like '" .
 			$db->escape_string($context) . "-%'";
 		if (($res = $db->query($query)) === FALSE)
-			echo "error executing db query: $query\nerror: " . mysqli_error() . "\n";
+			echo "error executing db query: $query\nerror: " . $db->error . "\n";
 
 		$subcontexts = array();
 		while ($subcontext = $res->fetch_row())
@@ -55,7 +55,7 @@
 	}
 
 	function displayContext($context, $interval) {
-		global $db;
+		global $db, $config;
 
 		$subcontexts = getSubcontexts($context);
 		for ($i = 0; $i < count($subcontexts); $i++) {
@@ -68,11 +68,11 @@
 <?php
 			$query = "select * from `$subcontexts[$i]` order by `date` desc limit 1";
 			if (($res = $db->query($query)) === FALSE)
-				echo "error executing db query: $query\nerror: " . mysqli_error() . "\n";
+				echo "error executing db query: $query\nerror: " . $db->error . "\n";
 			$res = $res->fetch_object();
 ?>
 				<span id="<?php echo $context; ?>-actualtemperature-value" class="temperaturevalue"><?php echo $res->value; ?>°C</span>
-				<span id="<?php echo $context; ?>-actualtemperature-lastrefresh" class="date"><?php echo $res->date; ?></span>
+				<span id="<?php echo $context; ?>-actualtemperature-lastrefresh" class="date<?php if (time()-strtotime($res->date) > $config['maxSecsBetweenPostTemps']) echo ' error'; ?>"><?php echo $res->date; ?></span>
 			</div>
 
 			<div class="minmaxtemperature">
@@ -80,7 +80,7 @@
 <?php
 			$query = "select * from `$subcontexts[$i]` where `value` = (select min(`value`) from `$subcontexts[$i]`)";
 			if (($res = $db->query($query)) === FALSE)
-				echo "error executing db query: $query\nerror: " . mysqli_error() . "\n";
+				echo "error executing db query: $query\nerror: " . $db->error . "\n";
 			$res = $res->fetch_object();
 ?>
 					<span id="<?php echo $context; ?>-mintemperature-value" class="mintemperaturevalue"><?php echo $res->value; ?>°C</span>
@@ -89,7 +89,7 @@
 <?php
 			$query = "select * from `$subcontexts[$i]` where `value` = (select max(`value`) from `$subcontexts[$i]`)";
 			if (($res = $db->query($query)) === FALSE)
-				echo "error executing db query: $query\nerror: " . mysqli_error() . "\n";
+				echo "error executing db query: $query\nerror: " . $db->error . "\n";
 			$res = $res->fetch_object();
 ?>
 					<span id="<?php echo $context; ?>-maxtemperature-value" class="maxtemperaturevalue"><?php echo $res->value; ?>°C</span>

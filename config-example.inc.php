@@ -4,6 +4,7 @@
 		'dbUser' => 'homerseklet',
 		'dbPass' => 'foobar2',
 		'dbName' => 'homerseklet',
-		'dbHost' => '127.0.0.1'
+		'dbHost' => '127.0.0.1',
+		'maxSecsBetweenPostTemps' => 600
 	);
 ?>

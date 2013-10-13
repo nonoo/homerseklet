@@ -5,11 +5,21 @@ body {
 	margin-top: 25px;
 	margin-right: 30px;
 }
+.error {
+	color: red;
+}
+#title {
+	display: inline-block;
+	font-size: 30px;
+	line-height: 30px;
+	float: left;
+}
 #contexts {
 	position: relative;
 	background-color: #e2ffe2;
 	border-radius: 10px;
 	padding: 10px;
+	margin-left: 30px;
 }
 #contexts .selected {
 	font-weight: bold;
@@ -59,6 +69,8 @@ body {
 .minmaxtemperature {
 	text-align: right;
 	font-size: 10px;
+	position: relative;
+	z-index: 1;
 }
 .mintemperaturevalue, .maxtemperaturevalue {
 	font-weight: bold;

@@ -54,7 +54,7 @@
 	$query .= " order by `date`";
 
 	if (($res = $db->query($query)) === FALSE)
-		echo "error executing db query: $query\nerror: " . mysqli_error() . "\n";
+		echo "error executing db query: $query\nerror: " . $db->error . "\n";
 
 	while ($row = $res->fetch_row()) {
 		echo "$row[0]";
