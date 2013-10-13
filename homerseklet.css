@@ -14,6 +14,10 @@ body {
 	line-height: 30px;
 	float: left;
 }
+a#title {
+	text-decoration: none;
+	color: black;
+}
 #contexts {
 	position: relative;
 	background-color: #e2ffe2;
