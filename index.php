@@ -30,7 +30,7 @@
 </head>
 
 <body>
-	<div id="title">Hőmérséklet</div>
+	<a id="title" href="<?php echo substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/')); ?>">Hőmérséklet</a>
 	<div id="contextswitchbox">
 		<span id="contexts">
 			Locations:
