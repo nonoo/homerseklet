@@ -122,7 +122,6 @@
 				{
 					title: "<?php echo getContextName($context); ?>",
 					connectSeparatedPoints: true,
-					animatedZooms: true,
 					ylabel: 'Temperature (°C)',
 					showRoller: true,
 					rollPeriod: 2,
